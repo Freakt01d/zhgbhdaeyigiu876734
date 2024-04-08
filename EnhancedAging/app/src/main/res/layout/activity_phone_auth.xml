@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="16dp"
+    android:paddingTop="16dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="16dp"
+    tools:context=".PhoneAuth">
+
+    <!-- App Name TextView -->
+    <TextView
+        android:id="@+id/textAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enhanced Aging"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Logo Image -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/en_logo18"
+        android:layout_below="@id/textAppName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- Elder Login TextView -->
+    <TextView
+        android:id="@+id/textElderLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Elder Login"
+        android:layout_below="@id/logo"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true" />
+
+    <!-- OTP EditText -->
+    <EditText
+        android:id="@+id/editTextotp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="OTP"
+        android:inputType="number"
+        android:layout_below="@id/textElderLogin"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Resend OTP TextView Button -->
+    <TextView
+        android:id="@+id/resendotp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resend OTP"
+        android:layout_below="@id/editTextotp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:clickable="true"
+        android:textColor="@color/black"
+        android:visibility="visible" />
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:layout_below="@id/resendotp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Connect with Us Button -->
+    <Button
+        android:id="@+id/btnConnectWithUs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Connect with Us"
+        android:layout_below="@id/btnLogin"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+</RelativeLayout>

@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Enhanced Aging</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="default_web_client_id">739543712117-psljoo5qbhs1rhd55ilimmhrp3842tsg.apps.googleusercontent.com</string>
+
+    <string name="login_failed">"Login failed"</string>
+    <string-array name="frequency_array">
+        <item>Once a day</item>
+        <item>Twice a day</item>
+        <item>Thrice a day</item>
+    </string-array>
+    <string-array name="intake_schedule_array">
+        <item>Daily</item>>
+        <item>Alternate days</item>
+    </string-array>
+
+
+</resources>

@@ -1,0 +1,127 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enhanced Aging"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="32dp"/>
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/en_logo18"
+            android:layout_below="@id/textAppName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1dp"/>
+
+        <!-- TextView for Family Signup -->
+        <TextView
+            android:id="@+id/textFamilySignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Family Signup"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@id/logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"/>
+
+        <!-- EditText for Name -->
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:layout_below="@+id/textFamilySignup"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- EditText for Age -->
+        <EditText
+            android:id="@+id/editTextAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:hint="Age"
+            android:inputType="number"
+            android:layout_below="@+id/editTextName"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- EditText for Username -->
+        <EditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:hint="Username"
+            android:inputType="text"
+            android:layout_below="@+id/editTextAge"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- EditText for Password -->
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:hint="Elder Email"
+            android:inputType="textEmailAddress"
+            android:layout_below="@+id/editTextUsername"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- EditText for Confirm Password -->
+
+
+        <!-- EditText for Phone number -->
+        <EditText
+            android:id="@+id/editTextPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:layout_below="@+id/editTextPassword"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- EditText for Aadhar number -->
+        <EditText
+            android:id="@+id/editTextAadharNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:hint="Aadhar Number (XXXX-XXXX-XXXX)"
+            android:inputType="number"
+            android:layout_below="@+id/editTextPhoneNumber"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Button for Submit -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_below="@+id/editTextAadharNumber"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_button"
+            android:textColor="@android:color/white"/>
+
+    </RelativeLayout>
+</ScrollView>

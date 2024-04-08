@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="16dp"
+    android:paddingTop="16dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="16dp"
+    tools:context=".MainActivity">
+
+    <!-- App Name TextView -->
+    <TextView
+        android:id="@+id/textAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enhanced Aging"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Logo Image -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/en_logo18"
+        android:layout_below="@id/textAppName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Elder Login TextView -->
+    <TextView
+        android:id="@+id/textElderLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Family Login"
+        android:layout_below="@id/logo"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <!-- Username/Phone/Email EditText -->
+    <EditText
+        android:id="@+id/editTextUsernameOrPhoneOrEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number or Email"
+        android:inputType="text"
+        android:layout_below="@id/textElderLogin"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- Forgot Password Button -->
+    <Button
+        android:id="@+id/btnForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:layout_below="@id/editTextUsernameOrPhoneOrEmail"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:background="@android:color/transparent"
+        android:textColor="@color/black"
+        android:gravity="start|top"/>
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:layout_below="@id/btnForgotPassword"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- Sign in through Google Button -->
+    <Button
+        android:id="@+id/btnGoogleSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign in through Google"
+        android:layout_below="@id/btnLogin"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- Connect with Us Button -->
+    <Button
+        android:id="@+id/btnConnectWithUs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Connect with Us"
+        android:layout_below="@id/btnGoogleSignIn"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+</RelativeLayout>

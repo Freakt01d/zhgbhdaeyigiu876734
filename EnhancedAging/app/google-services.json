@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "739543712117",
+    "firebase_url": "https://elder-aaa86-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "elder-aaa86",
+    "storage_bucket": "elder-aaa86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739543712117:android:f6bdc27ff62d2c6a9f533c",
+        "android_client_info": {
+          "package_name": "com.example.enhancedaging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "739543712117-psljoo5qbhs1rhd55ilimmhrp3842tsg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH9z1mysutGjAVjfiu2l0Jhyx4oBGnXp4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "739543712117-psljoo5qbhs1rhd55ilimmhrp3842tsg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

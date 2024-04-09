@@ -81,9 +81,7 @@
         <activity
             android:name=".EmailPass"
             android:exported="false" />
-        <activity
-            android:name=".emergency_response_system"
-            android:exported="false" />
+
         <activity
             android:name=".FamilyMain"
             android:exported="false" />
@@ -138,8 +136,14 @@
         <activity
             android:name=".LoginEld"
             android:exported="false" />
+
+
         <activity
             android:name=".MainActivity2"
+            android:exported="false" />
+
+        <activity
+            android:name=".fall_detection.MainActivity4"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

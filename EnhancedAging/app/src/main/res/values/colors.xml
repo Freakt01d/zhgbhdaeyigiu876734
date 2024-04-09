@@ -14,4 +14,16 @@
 
     <color name="colorPurple">#8E24AA</color> <!-- Example purple color -->
 
+
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="background">#B0C4DE</color>
+    <color name="cursor">#58626F</color>
+    <color name="blue">#20719A</color>
+
+
+
 </resources>

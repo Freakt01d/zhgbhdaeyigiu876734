@@ -60,6 +60,8 @@ public class MedicInner extends AppCompatActivity {
     private StorageReference storageReference;
     private Uri imageUri;
 
+    private String elderEmail; //
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +100,8 @@ public class MedicInner extends AppCompatActivity {
         // Set onClickListener to show popup menu
         binding.buttonShowMenu.setOnClickListener(this::showPopupMenu);
 
+        elderEmail = getIntent().getStringExtra("ElderMail");
+
         Button saveTabButton = findViewById(R.id.SaveTab);
         saveTabButton.setOnClickListener(this::onSaveButtonClicked);
 
@@ -108,13 +112,15 @@ public class MedicInner extends AppCompatActivity {
             if (currentUser != null && currentUser.getEmail() != null) {
                 Intent intent = new Intent(MedicInner.this, tabletmain.class);
                 // Pass the elder's email
-                intent.putExtra("ELDER_EMAIL", currentUser.getEmail());
+                intent.putExtra("ELDER_EMAIL", elderEmail);
                 startActivity(intent);
             } else {
                 // Handle the case where there is no user logged in
                 Toast.makeText(MedicInner.this, "No user logged in", Toast.LENGTH_SHORT).show();
             }
         });
+
+
     }
 
     private void setupCameraLauncher() {
@@ -185,33 +191,30 @@ public class MedicInner extends AppCompatActivity {
         String intakeSchedule = spinnerIntakeSchedule.getSelectedItem().toString();
         String intakeTimePreference = radioGroupIntake.getCheckedRadioButtonId() == R.id.radioButtonBefore ? "Before" : "After";
 
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (currentUser != null) {
-            String elderEmail = currentUser.getEmail();
-            if (elderEmail != null) {
-                if (!tabletName.isEmpty() && !dosage.isEmpty()) {
-                    Tablet tablet = new Tablet();
-                    tablet.setName(tabletName);
-                    tablet.setDosage(dosage);
-                    tablet.setFrequency(frequency);
-                    tablet.setIntakeSchedule(intakeSchedule);
-                    tablet.setIntakeTime(intakeTimePreference);
+        // Directly use the elderEmail variable that was set in onCreate from intent extra
+        if (elderEmail != null && !elderEmail.isEmpty()) {
+            if (!tabletName.isEmpty() && !dosage.isEmpty()) {
+                Tablet tablet = new Tablet();
+                tablet.setName(tabletName);
+                tablet.setDosage(dosage);
+                tablet.setFrequency(frequency);
+                tablet.setIntakeSchedule(intakeSchedule);
+                tablet.setIntakeTime(intakeTimePreference);
 
-                    uploadImageAndSaveTablet(elderEmail, tablet);
-                } else {
-                    Toast.makeText(this, "Please enter tablet name and dosage", Toast.LENGTH_SHORT).show();
-                }
+                uploadImageAndSaveTablet(elderEmail, tablet);
+            } else {
+                Toast.makeText(this, "Please enter tablet name and dosage", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(this, "No user logged in", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Elder email is not available", Toast.LENGTH_SHORT).show();
         }
     }
 
+
     private void uploadImageAndSaveTablet(String elderEmail, Tablet tablet) {
         if (imageUri != null) {
-            StorageReference fileRef = storageReference.child("medic_images/" + System.currentTimeMillis() + "." + getFileExtension(imageUri));
+            StorageReference fileRef = storageReference.child("images/" + System.currentTimeMillis() + ".jpg");
             UploadTask uploadTask = fileRef.putFile(imageUri);
-
             uploadTask.continueWithTask(task -> {
                 if (!task.isSuccessful()) {
                     throw task.getException();
@@ -220,33 +223,39 @@ public class MedicInner extends AppCompatActivity {
             }).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     Uri downloadUri = task.getResult();
-                    tablet.setImageUrl(downloadUri.toString());
-                    saveTabletDetails(elderEmail, tablet);
+                    String imageUrl = downloadUri.toString();
+                    insertTabletIntoFirestore(elderEmail, tablet, imageUrl);
                 } else {
-                    Toast.makeText(MedicInner.this, "Upload failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MedicInner.this, "Failed to upload image", Toast.LENGTH_SHORT).show();
                 }
             });
         } else {
-            // No image selected, proceed to save tablet details without an image URL
-            saveTabletDetails(elderEmail, tablet);
+            // If there's no image selected, proceed without an image URL
+            insertTabletIntoFirestore(elderEmail, tablet, null);
         }
     }
 
-    private void saveTabletDetails(String elderEmail, Tablet tablet) {
+    private void insertTabletIntoFirestore(String elderEmail, Tablet tablet, String imageUrl) {
         Map<String, Object> tabletMap = new HashMap<>();
         tabletMap.put("name", tablet.getName());
         tabletMap.put("dosage", tablet.getDosage());
         tabletMap.put("frequency", tablet.getFrequency());
         tabletMap.put("intakeSchedule", tablet.getIntakeSchedule());
         tabletMap.put("intakeTime", tablet.getIntakeTime());
-        tabletMap.put("imageUrl", tablet.getImageUrl() != null ? tablet.getImageUrl() : "");
+        // Include the image URL in the document if available
+        if (imageUrl != null) {
+            tabletMap.put("imageUrl", imageUrl);
+        }
 
-        db.collection("elders").document(elderEmail).collection("tablets").add(tabletMap)
+        // Adding the tablet to Firestore
+        db.collection("elders")
+                .document(elderEmail)
+                .collection("tablets")
+                .add(tabletMap)
                 .addOnSuccessListener(documentReference -> Toast.makeText(MedicInner.this, "Tablet saved successfully", Toast.LENGTH_SHORT).show())
-                .addOnFailureListener(e -> Toast.makeText(MedicInner.this, "Error saving tablet: " + e.getMessage(), Toast.LENGTH_SHORT).show());
-    }
-
-    private String getFileExtension(Uri uri) {
-        return getContentResolver().getType(uri).split("/")[1];
+                .addOnFailureListener(e -> Toast.makeText(MedicInner.this, "Error saving tablet", Toast.LENGTH_SHORT).show());
     }
 }
+
+
+

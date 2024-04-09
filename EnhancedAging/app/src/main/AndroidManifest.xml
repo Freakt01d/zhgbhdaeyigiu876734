@@ -18,7 +18,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
@@ -49,6 +48,18 @@
         android:theme="@style/Theme.EnhancedAging"
         tools:targetApi="31">
         <activity
+            android:name=".DisplayPres"
+            android:exported="false" />
+        <activity
+            android:name=".DisplayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Prescription"
+            android:exported="false" />
+        <activity
+            android:name=".Reports_Med"
+            android:exported="false" />
+        <activity
             android:name=".ProfileViewFam"
             android:exported="false" />
         <activity
@@ -57,7 +68,7 @@
         <activity
             android:name=".Family_Pre_Signup"
             android:exported="false" />
-        <activity android:name=".FullscreenImageActivity"></activity>
+        <activity android:name=".FullscreenImageActivity" />
         <activity
             android:name=".FamilyDashboard"
             android:exported="false" />

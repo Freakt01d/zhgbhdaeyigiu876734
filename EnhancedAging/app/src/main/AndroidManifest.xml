@@ -144,7 +144,10 @@
 
         <activity
             android:name=".fall_detection.MainActivity4"
-            android:exported="false" />
+            android:exported="true">
+
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -153,6 +156,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

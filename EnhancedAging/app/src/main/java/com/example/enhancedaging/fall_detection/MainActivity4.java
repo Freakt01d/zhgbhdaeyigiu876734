@@ -23,10 +23,9 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -40,7 +39,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity4 extends AppCompatActivity {
+public class MainActivity4 extends Activity {
     private static final String TAG = "MainActivity";
     private static final int SEND_SMS_PERMISSION_REQUEST_CODE = 2; // Define a constant for the request code
 
@@ -175,7 +174,7 @@ public class MainActivity4 extends AppCompatActivity {
 
         // Actionbar:
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
+        setActionBar(myToolbar);
         myToolbar.setTitleTextColor(getResources().getColor(R.color.blue));
 
         mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);

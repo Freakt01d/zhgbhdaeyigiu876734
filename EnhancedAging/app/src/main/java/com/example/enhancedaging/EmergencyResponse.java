@@ -10,6 +10,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.enhancedaging.Routine.RoutineAnalysis;
 import com.example.enhancedaging.fall_detection.MainActivity4;
 
 public class EmergencyResponse extends AppCompatActivity {
@@ -28,12 +29,21 @@ public class EmergencyResponse extends AppCompatActivity {
 
         });
         Button openMenuButton3 = findViewById(R.id.emergencyButton);
+        Button openMenuButton2 = findViewById(R.id.emergencyButton1);
 
         openMenuButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Start the Menu_1 activity when the ImageButton is clicked
                 startActivity(new Intent(EmergencyResponse.this, MainActivity4.class));
+            }
+        });
+
+        openMenuButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start the Menu_1 activity when the ImageButton is clicked
+                startActivity(new Intent(EmergencyResponse.this, RoutineAnalysis.class));
             }
         });
     }

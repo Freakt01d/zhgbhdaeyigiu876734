@@ -71,7 +71,7 @@
             android:layout_below="@id/emergencyButton"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
-            android:text="dvabcvuac"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -88,17 +88,7 @@
             android:text="Routine Analysis"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/textViewBelowEmergencyButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/emergencyButton1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:text="hcqwbjc"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+
 
     </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

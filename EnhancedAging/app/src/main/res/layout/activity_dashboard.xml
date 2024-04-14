@@ -11,35 +11,35 @@
         android:id="@+id/topBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPurple"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="#D1C0C0"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp"
         android:paddingTop="8dp"
-        android:paddingBottom="8dp">
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/profileImageView"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="@drawable/circular_background"
             android:scaleType="centerCrop"
             android:src="@drawable/img"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/profileNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Profile Name"
+            android:text=""
             android:textColor="@android:color/white"
             android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/profileImageView"
             app:layout_constraintStart_toEndOf="@id/profileImageView"
-            app:layout_constraintTop_toTopOf="@id/profileImageView"
-            app:layout_constraintBottom_toBottomOf="@id/profileImageView" />
+            app:layout_constraintTop_toTopOf="@id/profileImageView" />
 
         <ImageButton
             android:id="@+id/notificationButton"
@@ -59,9 +59,9 @@
             android:id="@+id/supportButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:scaleType="fitCenter"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="8dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/img_2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +73,7 @@
         android:id="@+id/horizontalScrollView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+
         app:layout_constraintTop_toBottomOf="@id/topBarLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -84,14 +84,17 @@
             android:orientation="horizontal">
 
             <!-- Example ImageView for a Quote Image -->
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:src="@drawable/img_6"
-                android:scaleType="centerCrop"
-                android:layout_margin="8dp" />
 
             <!-- Example TextView for a Quote Text -->
+
+            <ImageView
+                android:id="@+id/quotes_imv"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/w4" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -218,7 +221,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="90dp"
         android:background="#D1C0C0"
         app:layout_constraintBottom_toBottomOf="parent">
 
